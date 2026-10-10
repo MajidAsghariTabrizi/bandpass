@@ -1,0 +1,7 @@
+{
+  "objective": "ship billing v2.2 deploy runbook",
+  "phase": "drafting",
+  "step": 4,
+  "total_steps": 7,
+  "next_action": "draft rollback section"
+}

@@ -1,0 +1,6 @@
+{"id": "claim:deploy.method", "subject": "deploy.method", "text": "deployment method = GitHub Actions", "state": "ACTIVE", "support": "VERIFIED", "evidence_count": 3, "last_verified_at": "2026-09-30T08:00:00Z", "supersedes": "claim:deploy.method.jenkins"}
+{"id": "claim:deploy.method.jenkins", "subject": "deploy.method", "text": "deployment method = Jenkins", "state": "SUPERSEDED", "support": "CORROBORATED", "evidence_count": 2, "last_verified_at": "2026-06-12T10:00:00Z"}
+{"id": "claim:deploy.region", "subject": "deploy.region", "text": "deployment region = eu-west-1", "state": "ACTIVE", "support": "VERIFIED", "evidence_count": 2, "last_verified_at": "2026-10-02T09:00:00Z"}
+{"id": "claim:rollback.owner", "subject": "deploy.rollback-owner", "text": "rollback owner may be platform team (chat, unconfirmed)", "state": "ACTIVE", "support": "HEARSAY", "evidence_count": 0, "last_verified_at": "2026-10-03T16:00:00Z"}
+{"id": "claim:billing.migration-owner", "subject": "billing.migration-owner", "text": "current database migration owner for billing = not established", "state": "ACTIVE", "support": "UNKNOWN", "evidence_count": 0}
+{"id": "claim:marketing.site-color", "subject": "marketing.site-color", "text": "new hero color #334455 approved", "state": "ACTIVE", "support": "OBSERVED", "evidence_count": 1, "last_verified_at": "2026-09-29T10:00:00Z"}

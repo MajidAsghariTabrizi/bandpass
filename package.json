@@ -1,0 +1,66 @@
+{
+  "name": "bandpass",
+  "version": "0.1.0",
+  "description": "Context compiler for AI agents — compile task-scoped, evidence-aware Context Capsules from memory, state, files and tools over MCP. Pass only what the task needs.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Majid Asghari Tabrizi",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MajidAsghariTabrizi/bandpass.git"
+  },
+  "homepage": "https://github.com/MajidAsghariTabrizi/bandpass#readme",
+  "bugs": {
+    "url": "https://github.com/MajidAsghariTabrizi/bandpass/issues"
+  },
+  "bin": {
+    "bandpass": "dist/cli.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "context-engineering",
+    "context-management",
+    "context-compilation",
+    "ai-agents",
+    "agent-memory",
+    "long-term-memory",
+    "stateful-agents",
+    "mcp",
+    "model-context-protocol",
+    "llm",
+    "llm-agents",
+    "token-budget",
+    "provenance"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "tsc -p tsconfig.json && node --test \"dist/*.test.js\"",
+    "demo": "node dist/cli.js demo",
+    "demo:smoke": "node dist/cli.js demo --smoke",
+    "bench": "node bench/run.mjs",
+    "bench:smoke": "node bench/run.mjs --smoke",
+    "mcp:smoke": "node test/mcp-smoke.mjs",
+    "lab:sync": "node scripts/sync-lab.mjs",
+    "verify": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.json && node --test \"dist/*.test.js\" && node dist/cli.js demo --smoke && node bench/run.mjs --smoke && node test/mcp-smoke.mjs && node scripts/sync-lab.mjs --check"
+  },
+  "files": [
+    "dist",
+    "fixtures",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
+  }
+}

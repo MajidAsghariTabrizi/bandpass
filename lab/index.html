@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>bandpass / lab — the context compiler, live</title>
+  <meta name="description" content="Interactive lab for bandpass, the context compiler for AI agents: watch 33 raw sources get ranked, verified, resolved and compressed into one evidence-aware Context Capsule — with every rejection on the record.">
+  <link rel="stylesheet" href="lab.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0b0b'/%3E%3Crect x='4' y='12' width='24' height='8' fill='none' stroke='%23ffb454' stroke-width='2'/%3E%3C/svg%3E">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">BANDPASS<span class="cursor">▮</span></div>
+    <div class="tagline">CONTEXT COMPILER / LAB</div>
+    <div class="top-links">
+      <a href="https://github.com/MajidAsghariTabrizi/bandpass">github →</a>
+      <a href="https://github.com/MajidAsghariTabrizi/bandpass#readme">readme →</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ CONTROL PANEL ============ -->
+    <section class="panel control" id="control">
+      <div class="panel-head">
+        <span class="panel-title">CONTEXT COMPILER / LIVE</span>
+        <span class="panel-note">deterministic — same inputs, same capsule</span>
+      </div>
+      <div class="control-grid">
+        <label class="field">
+          <span class="field-label">TASK</span>
+          <select id="task-select"></select>
+        </label>
+        <div class="field">
+          <span class="field-label">BUDGET</span>
+          <span class="field-value" id="budget-value">1200</span>
+        </div>
+        <button id="compile-btn" class="compile-btn">COMPILE CONTEXT</button>
+      </div>
+      <div class="counters">
+        <div class="counter"><span class="counter-label">SOURCES</span><span class="counter-value" id="c-sources">—</span></div>
+        <div class="counter"><span class="counter-label">IN BAND</span><span class="counter-value" id="c-band">—</span></div>
+        <div class="counter"><span class="counter-label">SELECTED</span><span class="counter-value accent" id="c-selected">—</span></div>
+        <div class="counter"><span class="counter-label">CONFLICTS</span><span class="counter-value warn" id="c-conflicts">—</span></div>
+        <div class="counter"><span class="counter-label">UNKNOWN</span><span class="counter-value dim" id="c-unknown">—</span></div>
+        <div class="counter"><span class="counter-label">TOKENS</span><span class="counter-value accent" id="c-tokens">—</span></div>
+      </div>
+      <div class="token-meter"><div class="token-meter-fill" id="token-fill"></div><span class="token-meter-label" id="token-label">0 / 1200 (estimated)</span></div>
+    </section>
+
+    <!-- ============ PIPELINE ============ -->
+    <section class="panel pipeline" id="pipeline">
+      <div class="panel-head"><span class="panel-title">PIPELINE</span><span class="panel-note" id="pipeline-state">idle</span></div>
+      <div class="stages">
+        <div class="stage" data-stage="RANK"><span class="stage-name">RANK</span><span class="stage-count" id="s-rank">—</span><span class="stage-desc">task defines the passband</span></div>
+        <div class="stage-arrow">→</div>
+        <div class="stage" data-stage="VERIFY"><span class="stage-name">VERIFY</span><span class="stage-count" id="s-verify">—</span><span class="stage-desc">grade the evidence</span></div>
+        <div class="stage-arrow">→</div>
+        <div class="stage" data-stage="RESOLVE"><span class="stage-name">RESOLVE</span><span class="stage-count" id="s-resolve">—</span><span class="stage-desc">one truth per subject</span></div>
+        <div class="stage-arrow">→</div>
+        <div class="stage" data-stage="COMPRESS"><span class="stage-name">COMPRESS</span><span class="stage-count" id="s-compress">—</span><span class="stage-desc">fit the budget</span></div>
+      </div>
+    </section>
+
+    <!-- ============ RAW FEED / SPECTRUM ============ -->
+    <section class="panel feed">
+      <div class="panel-head">
+        <span class="panel-title">RAW SOURCES</span>
+        <span class="panel-note">relevance spectrum — the task is the band; ticks outside the band stay out</span>
+      </div>
+      <div class="spectrum" id="spectrum">
+        <div class="spectrum-band" id="spectrum-band"></div>
+        <div class="spectrum-ticks" id="spectrum-ticks"></div>
+        <div class="spectrum-axis"><span>0.0</span><span>0.25</span><span>0.5</span><span>0.75</span><span>1.0</span></div>
+      </div>
+      <div class="feed-list" id="feed-list"></div>
+    </section>
+
+    <!-- ============ CAPSULE ============ -->
+    <section class="panel capsule-panel">
+      <div class="panel-head">
+        <span class="panel-title">CONTEXT CAPSULE</span>
+        <span class="panel-note">what the agent actually receives — click a row for WHY</span>
+      </div>
+      <div id="capsule">
+        <div class="capsule-empty" id="capsule-empty">— press COMPILE CONTEXT —</div>
+        <div id="capsule-body" hidden>
+          <div class="capsule-header" id="capsule-header"></div>
+          <div id="capsule-sections"></div>
+        </div>
+      </div>
+      <div class="why" id="why" hidden>
+        <div class="panel-head"><span class="panel-title">WHY — <span id="why-id"></span></span><button class="why-close" id="why-close">×</button></div>
+        <pre id="why-body"></pre>
+      </div>
+    </section>
+
+    <!-- ============ REJECTED ============ -->
+    <section class="panel rejected-panel">
+      <div class="panel-head">
+        <span class="panel-title">REJECTED</span>
+        <span class="panel-note">the most important panel — exclusion is a decision, show it</span>
+      </div>
+      <div id="rejected-list" class="rejected-list"><div class="capsule-empty">— nothing rejected yet —</div></div>
+    </section>
+
+    <!-- ============ DIFF ============ -->
+    <section class="panel diff-panel">
+      <div class="panel-head">
+        <span class="panel-title">CONTEXT DIFF</span>
+        <span class="panel-note" id="diff-note">what changes when the task changes</span>
+      </div>
+      <div id="diff-list" class="diff-list"></div>
+      <div class="diff-summary" id="diff-summary"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>bandpass v0.1.0 · MIT · <a href="https://github.com/MajidAsghariTabrizi/bandpass">github.com/MajidAsghariTabrizi/bandpass</a></span>
+    <span>every number on this page was produced by the real compiler — <code>npm run lab:sync</code></span>
+  </footer>
+
+  <script src="corpus.js"></script>
+  <script src="lab.js"></script>
+</body>
+</html>

@@ -1,0 +1,332 @@
+{
+  "task": "deploy billing service to production",
+  "budget": 1200,
+  "now": "2026-10-05T00:00:00Z",
+  "mission": {
+    "objective": "ship billing v2.2 deploy runbook",
+    "step": 4,
+    "total_steps": 7,
+    "next_action": "draft rollback section"
+  },
+  "items": [
+    {
+      "id": "deploy.region.config",
+      "subject": "deploy.region",
+      "content": "deployment region = eu-west-1",
+      "kind": "fact",
+      "source": "config://deploy-billing/config.json#region",
+      "observed_at": "2026-10-02T09:00:00Z",
+      "authority": 0.95,
+      "evidence": 2
+    },
+    {
+      "id": "deploy.region.notes",
+      "subject": "deploy.region",
+      "content": "deployment region = eu-west-1",
+      "kind": "fact",
+      "source": "notes://ops/deploy-notes-2026.md#region",
+      "observed_at": "2026-09-20T14:00:00Z",
+      "authority": 0.6,
+      "evidence": 1
+    },
+    {
+      "id": "deploy.method.gha",
+      "subject": "deploy.method",
+      "content": "deployment method = GitHub Actions",
+      "kind": "fact",
+      "source": "config://deploy-billing/ci.yml#deploy-job",
+      "observed_at": "2026-09-30T08:00:00Z",
+      "authority": 0.9,
+      "evidence": 2,
+      "supersedes": "deploy.method.jenkins"
+    },
+    {
+      "id": "deploy.method.jenkins",
+      "subject": "deploy.method",
+      "content": "deployment method = Jenkins",
+      "kind": "fact",
+      "source": "notes://runbook/deploy-2026-06.md#method",
+      "observed_at": "2026-06-12T10:00:00Z",
+      "authority": 0.7,
+      "evidence": 1
+    },
+    {
+      "id": "deploy.registry",
+      "subject": "deploy.registry",
+      "content": "container registry = ghcr.io/acme/billing",
+      "kind": "fact",
+      "source": "config://deploy-billing/ci.yml#registry",
+      "observed_at": "2026-09-30T08:00:00Z",
+      "authority": 0.9,
+      "evidence": 2
+    },
+    {
+      "id": "deploy.staging-gate",
+      "subject": "deploy.staging-gate",
+      "content": "staging gate = smoke tests must pass on staging before production",
+      "kind": "fact",
+      "source": "notes://deploy-billing/runbook.md#gates",
+      "observed_at": "2026-09-28T11:00:00Z",
+      "authority": 0.85,
+      "evidence": 1
+    },
+    {
+      "id": "deploy.rollback-window",
+      "subject": "deploy.rollback-window",
+      "content": "rollback window = 15 minutes after deploy completion",
+      "kind": "fact",
+      "source": "notes://policy/deploys.md#rollback",
+      "observed_at": "2026-08-14T13:00:00Z",
+      "authority": 0.8,
+      "evidence": 1
+    },
+    {
+      "id": "deploy.freeze",
+      "subject": "deploy.freeze",
+      "content": "deploy freeze = Nov 24-30 (Black Friday), no production deploys",
+      "kind": "fact",
+      "source": "notes://policy/deploys.md#freeze",
+      "observed_at": "2026-10-01T10:00:00Z",
+      "authority": 0.85,
+      "evidence": 1
+    },
+    {
+      "id": "deploy.rollback-owner",
+      "subject": "deploy.rollback-owner",
+      "content": "rollback owner may be platform team (mentioned in chat, unconfirmed)",
+      "kind": "fact",
+      "source": "chat://ops-channel/2026-10-03#rollback-owner",
+      "observed_at": "2026-10-03T16:00:00Z",
+      "authority": 0.25,
+      "evidence": 0
+    },
+    {
+      "id": "unknown.billing.db-migration-owner",
+      "subject": "billing.db-migration-owner",
+      "content": "current database migration owner for billing = not established",
+      "kind": "unknown",
+      "source": "mission://checkpoint#open-questions",
+      "authority": 0.3,
+      "evidence": 0
+    },
+    {
+      "id": "unknown.deploy.oncall",
+      "subject": "deploy.oncall",
+      "content": "who is on-call during the deploy window = not established",
+      "kind": "unknown",
+      "source": "mission://checkpoint#open-questions",
+      "authority": 0.3,
+      "evidence": 0
+    },
+    {
+      "id": "billing.invoice-template",
+      "subject": "billing.invoice-template",
+      "content": "invoice template v9 shipped to customers",
+      "kind": "fact",
+      "source": "notes://product/billing-changelog.md#v9",
+      "observed_at": "2026-09-15T09:00:00Z",
+      "authority": 0.6,
+      "evidence": 1
+    },
+    {
+      "id": "billing.currency",
+      "subject": "billing.currency",
+      "content": "billing service reports revenue in EUR only",
+      "kind": "fact",
+      "source": "notes://deploy-billing/runbook.md#currency",
+      "observed_at": "2026-09-28T11:00:00Z",
+      "authority": 0.7,
+      "evidence": 1
+    },
+    {
+      "id": "deploy.frontend-method",
+      "subject": "deploy.frontend-method",
+      "content": "frontend deploys use Vercel, not the billing pipeline",
+      "kind": "fact",
+      "source": "notes://frontend/deploy.md#method",
+      "observed_at": "2026-09-10T10:00:00Z",
+      "authority": 0.75,
+      "evidence": 1
+    },
+    {
+      "id": "db.index-bloat",
+      "subject": "billing.db.index-bloat",
+      "content": "billing DB index bloat ticket #412, cleanup scheduled next sprint",
+      "kind": "fact",
+      "source": "tracker://infra/412",
+      "observed_at": "2026-09-25T12:00:00Z",
+      "authority": 0.6,
+      "evidence": 1
+    },
+    {
+      "id": "db.autovacuum",
+      "subject": "billing.db.maintenance",
+      "content": "billing DB autovacuum runs nightly at 03:00 UTC",
+      "kind": "fact",
+      "source": "config://billing/db.json#autovacuum",
+      "observed_at": "2026-09-02T10:00:00Z",
+      "authority": 0.9,
+      "evidence": 1
+    },
+    {
+      "id": "db.connection-pool",
+      "subject": "billing.db.connection-pool",
+      "content": "billing DB connection pool max = 20 connections",
+      "kind": "fact",
+      "source": "config://billing/db.json#pool",
+      "observed_at": "2026-09-02T10:00:00Z",
+      "authority": 0.9,
+      "evidence": 1
+    },
+    {
+      "id": "db.read-replica",
+      "subject": "billing.db.read-replica",
+      "content": "billing DB read replica = billing-ro.internal:5432",
+      "kind": "fact",
+      "source": "config://billing/db.json#replica",
+      "observed_at": "2026-09-02T10:00:00Z",
+      "authority": 0.9,
+      "evidence": 1
+    },
+    {
+      "id": "staging.db-url",
+      "subject": "staging.db-url",
+      "content": "staging database endpoint = staging-db.internal:5432 (from staging config)",
+      "kind": "fact",
+      "source": "config://staging/database.json#url",
+      "observed_at": "2026-09-18T08:00:00Z",
+      "authority": 0.9,
+      "evidence": 1
+    },
+    {
+      "id": "oncall.rotation-tool",
+      "subject": "oncall.rotation-tool",
+      "content": "on-call rotation is managed in PagerDuty schedule OPS-1",
+      "kind": "fact",
+      "source": "notes://ops/oncall.md#tool",
+      "observed_at": "2026-08-30T09:00:00Z",
+      "authority": 0.7,
+      "evidence": 1
+    },
+    {
+      "id": "legacy.deploy-notes",
+      "subject": "legacy.deploy-notes",
+      "content": "2019 deploy notes: billing was deployed with Capistrano over SSH",
+      "kind": "fact",
+      "source": "notes://archive/2019/deploys.md#billing",
+      "observed_at": "2019-11-03T10:00:00Z",
+      "authority": 0.5,
+      "evidence": 1
+    },
+    {
+      "id": "marketing.site-color",
+      "subject": "marketing.site-color",
+      "content": "marketing site: new hero color #334455 approved",
+      "kind": "fact",
+      "source": "notes://marketing/site.md#color",
+      "observed_at": "2026-09-29T10:00:00Z",
+      "authority": 0.5,
+      "evidence": 1
+    },
+    {
+      "id": "api.rate-limits",
+      "subject": "api.rate-limits",
+      "content": "public API rate limits raised to 10k rps",
+      "kind": "fact",
+      "source": "notes://api/changelog.md#rate-limits",
+      "observed_at": "2026-09-22T10:00:00Z",
+      "authority": 0.6,
+      "evidence": 1
+    },
+    {
+      "id": "hr.lunch",
+      "subject": "hr.lunch",
+      "content": "team lunch friday at 12:30, vegetarian option available",
+      "kind": "fact",
+      "source": "chat://general/2026-10-02#lunch",
+      "observed_at": "2026-10-02T12:00:00Z",
+      "authority": 0.3,
+      "evidence": 0
+    },
+    {
+      "id": "search.reindex",
+      "subject": "search.reindex",
+      "content": "search reindex job runs sundays 02:00 UTC",
+      "kind": "fact",
+      "source": "config://search/jobs.yml#reindex",
+      "observed_at": "2026-07-10T10:00:00Z",
+      "authority": 0.8,
+      "evidence": 1
+    },
+    {
+      "id": "auth.mfa-rollout",
+      "subject": "auth.mfa-rollout",
+      "content": "MFA rollout phase 2 planned next quarter",
+      "kind": "fact",
+      "source": "notes://auth/mfa.md#phase-2",
+      "observed_at": "2026-09-05T10:00:00Z",
+      "authority": 0.6,
+      "evidence": 1
+    },
+    {
+      "id": "docs.style-guide",
+      "subject": "docs.style-guide",
+      "content": "docs style guide: use the oxford comma",
+      "kind": "fact",
+      "source": "notes://docs/style.md#comma",
+      "observed_at": "2026-01-10T10:00:00Z",
+      "authority": 0.5,
+      "evidence": 1
+    },
+    {
+      "id": "ci.flaky-test",
+      "subject": "ci.flaky-test",
+      "content": "flaky test auth.spec.ts retried 3x in CI this week",
+      "kind": "fact",
+      "source": "chat://ci-alerts/2026-10-01#flaky",
+      "observed_at": "2026-10-01T07:00:00Z",
+      "authority": 0.4,
+      "evidence": 1
+    },
+    {
+      "id": "security.pen-test",
+      "subject": "security.pen-test",
+      "content": "penetration test scheduled for Q1",
+      "kind": "fact",
+      "source": "notes://security/plan.md#pentest",
+      "observed_at": "2026-08-20T10:00:00Z",
+      "authority": 0.6,
+      "evidence": 1
+    },
+    {
+      "id": "infra.terraform-version",
+      "subject": "infra.terraform-version",
+      "content": "terraform version pinned to 1.9.5 across infra repos",
+      "kind": "fact",
+      "source": "config://infra/versions.json#terraform",
+      "observed_at": "2026-09-01T10:00:00Z",
+      "authority": 0.85,
+      "evidence": 1
+    },
+    {
+      "id": "deploy.runbook-owner",
+      "subject": "deploy.runbook-owner",
+      "content": "deploy runbook owner = billing team (service.yaml owners field)",
+      "kind": "fact",
+      "source": "config://deploy-billing/service.yaml#owners",
+      "observed_at": "2026-09-12T10:00:00Z",
+      "authority": 0.9,
+      "evidence": 1
+    },
+    {
+      "id": "deploy.health-path",
+      "subject": "deploy.health-path",
+      "content": "post-deploy health check = GET /healthz must return 200 within 60s",
+      "kind": "fact",
+      "source": "config://deploy-billing/service.yaml#health",
+      "observed_at": "2026-09-12T10:00:00Z",
+      "authority": 0.9,
+      "evidence": 1
+    }
+  ]
+}

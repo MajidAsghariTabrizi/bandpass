@@ -6,6 +6,9 @@ the time of the entry — no vanity metrics, no bought stars, ever.
 | date | channel | asset | stars before | stars after | forks | external issues | external users | notes |
 |---|---|---|---|---|---|---|---|---|
 | 2026-10-05 | repository created | — | 0 | 0 | 0 | 0 | 0 | v0.1.0 first push: compiler, MCP server, Lab, benchmark, CI |
+| 2026-10-10 | public launch | — | 0 | 0 | 0 | 6 open (internal) | 0 | CI green (node 22/24 + gitleaks); Pages live; release v0.1.0; issues #1–#6 seeded; quickstart `npx github:…` verified end-to-end |
+| 2026-10-10 | social preview | manual step pending | — | — | — | — | — | API endpoint 404s; upload `docs/assets/social-preview.png` via web UI (Settings → Social preview) |
+| 2026-10-10 | awesome list | [Meirtz/Awesome-Context-Engineering#130](https://github.com/Meirtz/Awesome-Context-Engineering/pull/130) | 0 | 0 | 0 | 0 | 0 | one genuine PR, entry in Context Optimization Engines, follows list format |
 
 ## Prepared discovery submissions
 

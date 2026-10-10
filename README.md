@@ -224,7 +224,7 @@ See [`examples/`](examples/) and [`docs/PROVIDERS.md`](docs/PROVIDERS.md).
 |---|---|---|
 | Generic MCP client (stdio, spec `2025-06-18`) | **VERIFIED** | automated protocol smoke test in CI ([`test/mcp-smoke.mjs`](test/mcp-smoke.mjs)) |
 | Claude Code | EXPERIMENTAL | standard `mcpServers` config above; not yet tested end-to-end — PRs welcome |
-| Cursor | EXPERIMENTAL | standard MCP config; not yet tested — [#4](https://github.com/MajidAsghariTabrizi/bandpass/issues/4) |
+| Cursor | EXPERIMENTAL | standard MCP config; not yet tested — [#2](https://github.com/MajidAsghariTabrizi/bandpass/issues/2) |
 | Codex / Cline / Gemini CLI / OpenCode | UNTESTED | should work over stdio MCP; help verify → [good first issues](https://github.com/MajidAsghariTabrizi/bandpass/labels/good%20first%20issue) |
 
 *Statuses are honest: VERIFIED means an automated test exercised the actual wire protocol.*
@@ -360,7 +360,7 @@ Details: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) · Capsule format: [`doc
 - [ ] pluggable rankers (embeddings, BM25, hybrid) behind the same contract
 - [ ] `context_compile` streaming over larger corpora (chunked providers)
 - [ ] capsule format `v2`: per-item TTL, confidence intervals
-- [ ] verified client matrix (Cursor, Claude Code, Codex, Cline — [#4](https://github.com/MajidAsghariTabrizi/bandpass/issues/4))
+- [ ] verified client matrix (Cursor, Claude Code, Codex, Cline — [#2](https://github.com/MajidAsghariTabrizi/bandpass/issues/2) [#3](https://github.com/MajidAsghariTabrizi/bandpass/issues/3))
 - [ ] publish to npm (currently GitHub installs only)
 - [ ] benchmark corpus packs per domain (devops, support, research)
 

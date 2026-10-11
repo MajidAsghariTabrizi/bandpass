@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 360" width="880" height="360" role="img" aria-label="bandpass architecture: memory, files, git, mission state and retrieval sources flow through the compiler — rank, verify, resolve, compress — into one Context Capsule delivered to the agent">
+  <style>
+    text { font-family: ui-monospace, Menlo, Consolas, "DejaVu Sans Mono", monospace; }
+    .src { fill: #0b0b0b; stroke: #3a3a3a; stroke-width: 1; }
+    .srct { fill: #e6e3dc; font-size: 12px; font-weight: 700; }
+    .sub { fill: #8a877f; font-size: 9.5px; }
+    .core { fill: #101010; stroke: #ffb454; stroke-width: 1.5; }
+    .coret { fill: #ffb454; font-size: 15px; font-weight: 700; letter-spacing: 2px; }
+    .stage { fill: #e6e3dc; font-size: 11px; font-weight: 700; }
+    .sdesc { fill: #55534d; font-size: 8.5px; }
+    .cap { fill: none; stroke: #9ece6a; stroke-width: 1.5; }
+    .capt { fill: #9ece6a; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; }
+    .agt { fill: #e6e3dc; font-size: 12px; font-weight: 700; }
+    .arrow { stroke: #8a877f; stroke-width: 1; fill: none; marker-end: url(#a); }
+  </style>
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#8a877f"/>
+    </marker>
+  </defs>
+  <rect width="880" height="360" fill="#0b0b0b"/>
+  <rect x="0.5" y="0.5" width="879" height="359" fill="none" stroke="#262626"/>
+
+  <!-- sources column -->
+  <g>
+    <rect x="28" y="36" width="150" height="52" class="src"/><text x="42" y="58" class="srct">MEMORY</text><text x="42" y="74" class="sub">exports · claims (credence)</text>
+    <rect x="28" y="100" width="150" height="52" class="src"/><text x="42" y="122" class="srct">FILES</text><text x="42" y="138" class="sub">json · yaml · md · txt walks</text>
+    <rect x="28" y="164" width="150" height="52" class="src"/><text x="42" y="186" class="srct">GIT</text><text x="42" y="202" class="sub">branch · HEAD · worktree</text>
+    <rect x="28" y="228" width="150" height="52" class="src"/><text x="42" y="250" class="srct">STATE</text><text x="42" y="266" class="sub">mission · env · checkpoints</text>
+    <rect x="28" y="292" width="150" height="52" class="src"/><text x="42" y="314" class="srct">RETRIEVAL</text><text x="42" y="330" class="sub">any system yielding items</text>
+  </g>
+
+  <!-- arrows sources -> core -->
+  <path class="arrow" d="M178,62 C220,62 230,120 262,150"/>
+  <path class="arrow" d="M178,126 C214,126 228,138 262,158"/>
+  <path class="arrow" d="M178,190 C214,190 228,190 262,180"/>
+  <path class="arrow" d="M178,254 C214,254 228,242 262,202"/>
+  <path class="arrow" d="M178,318 C220,318 230,240 262,210"/>
+
+  <!-- core -->
+  <rect x="264" y="96" width="260" height="188" class="core"/>
+  <text x="394" y="124" text-anchor="middle" class="coret">BANDPASS</text>
+  <text x="394" y="140" text-anchor="middle" class="sub">the context compiler</text>
+  <text x="282" y="168" class="stage">RANK</text><text x="282" y="181" class="sdesc">task defines the passband · recency half-life</text>
+  <text x="282" y="202" class="stage">VERIFY</text><text x="282" y="215" class="sdesc">authority × evidence → support grades</text>
+  <text x="282" y="236" class="stage">RESOLVE</text><text x="282" y="249" class="sdesc">dedup · supersession · conflicts recorded</text>
+  <text x="282" y="270" class="stage">COMPRESS</text><text x="282" y="283" class="sdesc">budget fit · unknowns reserved</text>
+
+  <!-- core -> capsule -->
+  <path class="arrow" d="M524,190 L580,190"/>
+  <rect x="582" y="120" width="170" height="140" class="cap"/>
+  <text x="667" y="146" text-anchor="middle" class="capt">CONTEXT CAPSULE</text>
+  <text x="596" y="168" class="srct" style="fill:#9ece6a">✓ KNOWN</text><text x="676" y="168" class="sdesc">evidence-graded facts</text>
+  <text x="596" y="186" class="srct" style="fill:#7dcfff">~ UNCERTAIN</text><text x="676" y="186" class="sdesc">labeled, not trusted</text>
+  <text x="596" y="204" class="srct" style="fill:#7dcfff">? UNKNOWN</text><text x="676" y="204" class="sdesc">gaps stay explicit</text>
+  <text x="596" y="222" class="srct" style="fill:#ff5f56">× SUPERSEDED</text><text x="696" y="222" class="sdesc">on record</text>
+  <text x="596" y="240" class="srct" style="fill:#ffb454">▸ MISSION</text><text x="676" y="240" class="sdesc">durable objective</text>
+
+  <!-- capsule -> agent -->
+  <path class="arrow" d="M752,190 L800,190"/>
+  <rect x="802" y="164" width="56" height="52" class="src"/>
+  <text x="830" y="186" text-anchor="middle" class="agt">AGENT</text>
+  <text x="830" y="202" text-anchor="middle" class="sub">via MCP</text>
+
+  <text x="28" y="26" class="sub" style="letter-spacing:1px">MEMORY STORES · RETRIEVAL FINDS · BANDPASS DECIDES WHAT ENTERS THE CONTEXT WINDOW</text>
+</svg>

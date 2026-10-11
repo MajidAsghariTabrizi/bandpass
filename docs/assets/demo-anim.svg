@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 560" width="880" height="560" role="img" aria-label="bandpass demo: 33 raw context items — some stale, duplicated, conflicting, hearsay, irrelevant — compile into one 864-token Context Capsule with a rejection ledger">
+  <style>
+    text { font-family: ui-monospace, Menlo, Consolas, "DejaVu Sans Mono", monospace; }
+    .t { fill: #e6e3dc; font-size: 12.5px; }
+    .ok { fill: #9ece6a; }
+    .warn { fill: #ffb454; }
+    .bad { fill: #ff5f56; }
+    .info { fill: #7dcfff; }
+    .dim { fill: #8a877f; }
+    .hd { fill: #e6e3dc; font-size: 13px; font-weight: 700; letter-spacing: 1px; }
+    .step { opacity: 0; animation: ap 14s linear infinite; }
+    .s1 { animation-delay: 0.2s; } .s2 { animation-delay: 2.2s; } .s3 { animation-delay: 4.4s; }
+    .s4 { animation-delay: 6.6s; } .s5 { animation-delay: 8.8s; } .s6 { animation-delay: 10.6s; }
+    @keyframes ap { 0% { opacity: 0; } 3% { opacity: 1; } 94% { opacity: 1; } 100% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .step { animation: none; opacity: 1; } }
+  </style>
+  <rect width="880" height="560" fill="#0b0b0b"/>
+  <rect x="0.5" y="0.5" width="879" height="559" fill="none" stroke="#262626"/>
+  <rect x="1" y="1" width="878" height="26" fill="#101010"/>
+  <circle cx="16" cy="14" r="4" fill="#ff5f56"/><circle cx="30" cy="14" r="4" fill="#ffb454"/><circle cx="44" cy="14" r="4" fill="#9ece6a"/>
+  <text x="440" y="18" text-anchor="middle" class="dim" style="font-size:10px">npx github:MajidAsghariTabrizi/bandpass demo</text>
+
+  <g class="step s1">
+    <text x="28" y="58" class="hd">RAW CONTEXT — 33 ITEMS</text>
+    <text x="28" y="82" class="t">deploy runbook owner = billing team</text>
+    <text x="28" y="100" class="t">deployment method = GitHub Actions</text>
+    <text x="28" y="118" class="t bad">deployment method = Jenkins  (old note)</text>
+    <text x="28" y="136" class="t bad">2019 deploy notes: Capistrano…  (2528 days old)</text>
+    <text x="28" y="154" class="t bad">deployment region = eu-west-1  (duplicate)</text>
+    <text x="28" y="172" class="t info">rollback owner may be platform team  (hearsay)</text>
+    <text x="28" y="190" class="t info">migration owner = not established  (unknown)</text>
+    <text x="28" y="208" class="t dim">marketing: new hero color #334455</text>
+    <text x="28" y="226" class="t dim">HR: team lunch Friday…  (+10 more irrelevant)</text>
+  </g>
+
+  <g class="step s2">
+    <text x="28" y="262" class="warn">RANK     33 → 21 in band          12 rejected: relevance below threshold</text>
+    <text x="28" y="280" class="bad">  × Capistrano note  — stale: 2528 days, relevance 0.50 → 0.03</text>
+    <text x="28" y="298" class="dim">  × marketing, HR, misc  — relevance 0.00 &lt; 0.15</text>
+  </g>
+
+  <g class="step s3">
+    <text x="28" y="326" class="warn">VERIFY   evidence grades: VERIFIED / CORROBORATED / OBSERVED / HEARSAY</text>
+    <text x="28" y="344" class="info">  ~ rollback owner hearsay → surfaced as UNCERTAIN (flagged, not trusted)</text>
+  </g>
+
+  <g class="step s4">
+    <text x="28" y="372" class="warn">RESOLVE  16 assertable → 15 current</text>
+    <text x="28" y="390" class="bad">  × Jenkins method   — SUPERSEDED by GitHub Actions (recorded)</text>
+    <text x="28" y="408" class="bad">  × region duplicate — collapsed to config:// source</text>
+  </g>
+
+  <g class="step s5">
+    <text x="28" y="436" class="warn">COMPRESS 19 selected (864 / 1200 tokens, estimated)</text>
+  </g>
+
+  <g class="step s6">
+    <text x="28" y="470" class="hd ok">▸ CONTEXT CAPSULE READY — 864 tokens (est.)</text>
+    <text x="28" y="492" class="t ok">  ✓ 14 KNOWN facts · evidence + provenance per item</text>
+    <text x="28" y="510" class="t info">  ~ 3 UNCERTAIN (labeled weak) · ? 2 UNKNOWN (kept explicit)</text>
+    <text x="28" y="528" class="t dim">  × 14 REJECTED, on the record — every exclusion shows its reason</text>
+    <text x="28" y="546" class="warn">COMPILE CONTEXT. DON'T CONCATENATE IT.</text>
+  </g>
+</svg>

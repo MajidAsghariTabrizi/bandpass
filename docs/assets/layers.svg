@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 300" width="880" height="300" role="img" aria-label="three layers: memory stores knowledge, retrieval finds candidates, bandpass decides what enters context">
+  <style>
+    text { font-family: ui-monospace, Menlo, Consolas, "DejaVu Sans Mono", monospace; }
+    .box { fill: #101010; stroke: #3a3a3a; stroke-width: 1; }
+    .hl { stroke: #ffb454; stroke-width: 1.5; }
+    .name { fill: #e6e3dc; font-size: 15px; font-weight: 700; letter-spacing: 2px; }
+    .namehl { fill: #ffb454; }
+    .desc { fill: #8a877f; font-size: 11px; }
+    .ex { fill: #55534d; font-size: 9.5px; }
+    .arrow { stroke: #55534d; stroke-width: 1; fill: none; }
+    .q { fill: #7dcfff; font-size: 10px; }
+  </style>
+  <rect width="880" height="300" fill="#0b0b0b"/>
+  <rect x="0.5" y="0.5" width="879" height="299" fill="none" stroke="#262626"/>
+
+  <rect x="40" y="40" width="230" height="200" class="box"/>
+  <text x="60" y="76" class="name">MEMORY</text>
+  <text x="60" y="104" class="desc">stores knowledge</text>
+  <text x="60" y="128" class="ex">mem0 · letta · graphiti</text>
+  <text x="60" y="144" class="ex">supermemory · openviking</text>
+  <text x="60" y="168" class="ex">answers: "what do we know?"</text>
+  <text x="60" y="216" class="q">grows forever — by design</text>
+
+  <rect x="305" y="40" width="230" height="200" class="box"/>
+  <text x="325" y="76" class="name">RETRIEVAL</text>
+  <text x="325" y="104" class="desc">finds candidates</text>
+  <text x="325" y="128" class="ex">vector search · BM25 · RAG</text>
+  <text x="325" y="144" class="ex">top-k, similarity-ranked</text>
+  <text x="325" y="168" class="ex">answers: "what matches?"</text>
+  <text x="325" y="216" class="q">returns stale + conflicting +</text>
+  <text x="325" y="230" class="q">duplicates together — no opinion</text>
+
+  <rect x="570" y="40" width="270" height="200" class="box hl"/>
+  <text x="590" y="76" class="name namehl">BANDPASS</text>
+  <text x="590" y="104" class="desc">decides what enters context</text>
+  <text x="590" y="128" class="ex">rank · verify · resolve · compress</text>
+  <text x="590" y="144" class="ex">task-scoped, budget-bounded</text>
+  <text x="590" y="168" class="ex">answers: "what should the agent</text>
+  <text x="590" y="182" class="ex">receive right now?"</text>
+  <text x="590" y="216" class="q">retires the stale, labels the weak,</text>
+  <text x="590" y="230" class="q">keeps unknowns honest</text>
+
+  <path class="arrow" d="M270,140 L305,140"/><path class="arrow" d="M535,140 L570,140"/>
+  <text x="440" y="284" text-anchor="middle" class="desc" style="font-size:10px">different layers, not competitors — point bandpass at your memory and your retrieval</text>
+</svg>

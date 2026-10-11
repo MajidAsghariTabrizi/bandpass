@@ -9,6 +9,11 @@ the time of the entry — no vanity metrics, no bought stars, ever.
 | 2026-10-10 | public launch | — | 0 | 0 | 0 | 6 open (internal) | 0 | CI green (node 22/24 + gitleaks); Pages live; release v0.1.0; issues #1–#6 seeded; quickstart `npx github:…` verified end-to-end |
 | 2026-10-10 | social preview | manual step pending | — | — | — | — | — | API endpoint 404s; upload `docs/assets/social-preview.png` via web UI (Settings → Social preview) |
 | 2026-10-10 | awesome list | [Meirtz/Awesome-Context-Engineering#130](https://github.com/Meirtz/Awesome-Context-Engineering/pull/130) | 0 | 0 | 0 | 0 | 0 | one genuine PR, entry in Context Optimization Engines, follows list format |
+| 2026-10-10 | directory | [aglio-lab/context-engineering-tools#7](https://github.com/aglio-lab/context-engineering-tools/pull/7) | 0 | 0 | 0 | 0 | 0 | catalog regenerated per CONTRIBUTING; one tool per PR |
+| 2026-10-10 | awesome list | [yzfly/awesome-context-engineering#81](https://github.com/yzfly/awesome-context-engineering/pull/81) | 0 | 0 | 0 | 0 | 0 | README.md + README_CN.md in sync, per guidelines |
+| 2026-10-10 | MCP directory | [punkpeye/awesome-mcp-servers#16170](https://github.com/punkpeye/awesome-mcp-servers/pull/16170) | 0 | 0 | 0 | 0 | 0 | Knowledge & Memory category, 96k-star list, agent fast-track marker per their CONTRIBUTING |
+| 2026-10-10 | repo surfaces | issues #7–#10 (client verification ×3, real-world corpus), discussion #11 ("try to break the selection logic"), help-wanted labels | 0 | 0 | 0 | 0 | 0 | contribution surfaces for externals |
+| 2026-10-10 | conversion | README first-viewport rebuild + Use-bandpass-if + layers/architecture/animated-demo assets + ECOSYSTEM.md + LAUNCH_METRICS.md baseline | 0 | 0 | 0 | 0 | 0 | metrics baseline: 0 stars / 0 views / 0 clones |
 
 ## Prepared discovery submissions
 

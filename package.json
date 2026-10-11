@@ -51,6 +51,10 @@
   },
   "files": [
     "dist",
+    "!dist/**/*.test.js",
+    "!dist/**/*.test.d.ts",
+    "!dist/**/*.test.js.map",
+    "!dist/**/*.js.map",
     "fixtures",
     "README.md",
     "LICENSE",

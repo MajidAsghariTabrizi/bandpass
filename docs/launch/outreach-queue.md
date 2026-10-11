@@ -5,6 +5,9 @@ owner's account. One message each; no follow-up before 7 days; log below.
 
 | # | TARGET | SENT? | REPLIED? | TRIED? | FEEDBACK | FOLLOW-UP |
 |---|---|---|---|---|---|---|
+| A | amd/gaia#2781 (@itomek — author) | YES — public comment 2026-10-12 [link](https://github.com/amd/gaia/issues/2781#issuecomment-6106846872) | — | — | — | check thread in 5d; reply only if answered |
+| B | benkruger/flow#1869 (@tatiana-wag — author) | YES — public comment 2026-10-12 [link](https://github.com/benkruger/flow/issues/1869#issuecomment-6106848196) | — | — | — | check thread in 5d |
+| C | thedotmack/gaia#3 (@thedotmack) | YES — public comment 2026-10-12 [link](https://github.com/thedotmack/gaia/issues/3#issuecomment-6106849784) | — | — | — | check thread in 5d |
 | 1 | @muskfeel (openclaw issue) | BLOCKED — issue locked as stale; owner contact via profile email instead | — | — | — | — |
 | 1b | @YingzuoLiu (did the live repro on that issue) | — | — | — | — | — |
 | 2 | @sunnweiwei (relay) | — | — | — | — | — |

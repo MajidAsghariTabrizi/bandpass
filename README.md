@@ -40,6 +40,24 @@ No API key. No model. No install. Deterministic, local, offline:
 npx github:MajidAsghariTabrizi/bandpass demo
 ```
 
+## Install
+
+**Run straight from GitHub (works today, Node >= 20):**
+
+```bash
+npx github:MajidAsghariTabrizi/bandpass demo
+```
+
+**Clone for development or MCP hosting:**
+
+```bash
+git clone https://github.com/MajidAsghariTabrizi/bandpass.git
+cd bandpass
+npm install && npm run build
+```
+
+**npm registry:** `npm i -g bandpass` once the package is published to the npm registry — until then use the GitHub forms above. See [MCP quickstart](#mcp-quickstart) for the `mcpServers` client configuration.
+
 You will watch **33 raw items** — current facts, a stale Jenkins note, a duplicate,
 hearsay, unknowns and a pile of irrelevance — compile into **one 864-token capsule**
 with every rejection on the record:
